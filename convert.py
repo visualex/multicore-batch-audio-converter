@@ -41,6 +41,7 @@ def convert_file(file_path, input_dir, output_dir, output_format, sample_rate, b
     except Exception as e:
         return False, f"{file_path}: {e}"
 
+# audioop is deprecated https://docs.python.org/3/library/audioop.html 
 # def convert_file(file_path, input_dir, output_dir, output_format, sample_rate, bit_depth):
 #     try:
 #         rel_path = file_path.relative_to(input_dir)
