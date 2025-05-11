@@ -9,13 +9,13 @@ My hardware supports different file formats and backups in WAV were too big so I
 
 ## Features
 
-* **Recursive folder traversal** – scans subdirectories for audio files
 * **Multi-core processing** – utilizes all available CPU cores (configurable)
-* **Flexible format support** – output to WAV, FLAC, AIFF, MP3, etc.
+* **Recursive folder traversal** – scans subdirectories for audio files
+* **Flexible format support** – input wildcard all formats "*" or match "wav|aiff" and output to one of WAV, FLAC, AIFF, MP3, etc.
 * **Preserves directory structure** – mirrors input folder layout in output
 * **Error handling** – failed conversions are logged without stopping the process
-* **Cross-platform** – works on macOS, Linux, and Windows
-* **FFmpeg-based** – leverages the power and reliability of FFmpeg
+* **Cross-platform** – works on macOS (tested), Linux (expected), and Windows(🤷)
+* **FFmpeg-based** – leverages the power and reliability of FFmpeg (https://ffmpeg.org/)
 
 ---
 
