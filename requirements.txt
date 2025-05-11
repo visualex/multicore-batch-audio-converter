@@ -1,0 +1,3 @@
+tqdm
+pydub
+soundfile
