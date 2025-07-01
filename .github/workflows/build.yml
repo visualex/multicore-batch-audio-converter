@@ -126,6 +126,7 @@ jobs:
           # Copy binary and assets
           cp dist/AudioBatchConverter AppDir/usr/bin/
           cp assets/icon.png AppDir/usr/share/icons/hicolor/256x256/apps/audiobatchconverter.png
+          cp assets/icon.png AppDir/audiobatchconverter.png
           
           # Create desktop file
           cat > AppDir/usr/share/applications/audiobatchconverter.desktop <<EOL
