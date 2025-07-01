@@ -53,13 +53,29 @@ def convert_file(file_path, input_dir, output_dir, output_format, sample_rate, b
             "-f", output_format,
             str(output_file)
         ])
-        
+
         subprocess.run(cmd, check=True)
         return True, str(file_path)
     except subprocess.CalledProcessError as e:
         return False, f"{file_path}: ffmpeg failed\n{e}"
     except Exception as e:
         return False, f"{file_path}: {e}"
+
+# keep for doc
+# audioop is deprecated https://docs.python.org/3/library/audioop.html
+# def convert_file(file_path, input_dir, output_dir, output_format, sample_rate, bit_depth):
+#     try:
+#         rel_path = file_path.relative_to(input_dir)
+#         output_file = output_dir / rel_path.with_suffix(f'.{output_format}')
+#         output_file.parent.mkdir(parents=True, exist_ok=True)
+
+#         audio = AudioSegment.from_file(file_path)
+#         audio = audio.set_frame_rate(int(sample_rate)).set_sample_width(int(int(bit_depth) / 8))
+
+#         audio.export(output_file, format=output_format)
+#         return True, str(file_path)
+#     except Exception as e:
+#         return False, f"{file_path}: {e}"
 
 
 def parse_args():
@@ -77,7 +93,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    
+
     # Launch GUI if requested or no arguments provided
     if args.gui or len(sys.argv) == 1:
         try:
@@ -87,14 +103,14 @@ def main():
         except ImportError:
             print("GUI dependencies not installed. Please install PyQt6 to use the GUI.")
             sys.exit(1)
-    
+
     # Check if all required arguments are provided
     if not all([args.input_dir, args.output_dir, args.exts, args.format, args.rate, args.bit_depth]):
         print("Error: Missing required arguments for CLI mode.")
         print("Usage: convert.py INPUT_DIR OUTPUT_DIR EXTENSIONS OUTPUT_FORMAT SAMPLE_RATE BIT_DEPTH [--workers N]")
         print("       convert.py --gui  # Launch GUI mode")
         sys.exit(1)
-    
+
     input_dir = Path(args.input_dir)
     output_dir = Path(args.output_dir)
 

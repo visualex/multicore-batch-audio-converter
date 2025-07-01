@@ -3,6 +3,8 @@
 **Fast, recursive, multi-core audio batch converter using FFmpeg and Python.**  
 Convert entire folders of audio files into a consistent format using all available CPU cores.
 
+My hardware supports different file formats and backups in WAV were too big so I needed an efficient tool to convert all my samples to other formats. Backups are great in flac.
+
 ---
 
 ## Features
@@ -15,6 +17,7 @@ Convert entire folders of audio files into a consistent format using all availab
 - **Cross-platform** – works on macOS, Linux, and Windows
 - **FFmpeg-based** – leverages the power and reliability of FFmpeg
 - **Graphical User Interface** – easy-to-use GUI for all operations
+
 
 ---
 
