@@ -1,1 +1,6 @@
 venv
+__pycache__
+.ropeproject
+.DS_Store
+
+

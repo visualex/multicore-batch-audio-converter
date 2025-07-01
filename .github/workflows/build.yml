@@ -1,0 +1,164 @@
+name: Build Cross-Platform Executables
+
+on:
+  push:
+    tags:
+      - 'v*'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+          
+      - name: Install FFmpeg
+        run: |
+          choco install ffmpeg -y
+          
+      - name: Build executable
+        run: |
+          pyinstaller --name AudioBatchConverter --onefile --windowed --icon=assets/icon.ico --add-data="assets;assets" main.py
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AudioBatchConverter-Windows
+          path: dist/AudioBatchConverter.exe
+  
+  build_macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+          
+      - name: Install FFmpeg
+        run: |
+          brew install ffmpeg
+          
+      - name: Build application
+        run: |
+          pyinstaller --name AudioBatchConverter --onefile --windowed --icon=assets/icon.icns --add-data="assets:assets" main.py
+          
+      - name: Create DMG
+        run: |
+          brew install create-dmg
+          create-dmg \
+            --volname "AudioBatchConverter" \
+            --volicon "assets/icon.icns" \
+            --window-pos 200 120 \
+            --window-size 800 400 \
+            --icon-size 100 \
+            --icon "AudioBatchConverter.app" 200 190 \
+            --hide-extension "AudioBatchConverter.app" \
+            --app-drop-link 600 185 \
+            "AudioBatchConverter.dmg" \
+            "dist/AudioBatchConverter.app"
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AudioBatchConverter-macOS
+          path: AudioBatchConverter.dmg
+  
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+          
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          
+      - name: Build executable
+        run: |
+          pyinstaller --name AudioBatchConverter --onefile --windowed --add-data="assets:assets" main.py
+          
+      - name: Create AppImage
+        run: |
+          # Install AppImage tools
+          sudo apt-get install -y fuse libfuse2
+          wget -O appimagetool "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
+          chmod +x appimagetool
+          
+          # Create AppDir structure
+          mkdir -p AppDir/usr/bin
+          mkdir -p AppDir/usr/share/applications
+          mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
+          
+          # Copy binary and assets
+          cp dist/AudioBatchConverter AppDir/usr/bin/
+          cp assets/icon.png AppDir/usr/share/icons/hicolor/256x256/apps/audiobatchconverter.png
+          
+          # Create desktop file
+          cat > AppDir/usr/share/applications/audiobatchconverter.desktop <<EOL
+          [Desktop Entry]
+          Type=Application
+          Name=AudioBatchConverter
+          Comment=Fast, recursive, multi-core audio batch converter
+          Exec=AudioBatchConverter
+          Icon=audiobatchconverter
+          Categories=Audio;AudioVideo;
+          EOL
+          
+          # Create AppImage
+          ./appimagetool AppDir
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AudioBatchConverter-Linux
+          path: AudioBatchConverter-*.AppImage
+          
+  release:
+    needs: [build_windows, build_macos, build_linux]
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+        
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            AudioBatchConverter-Windows/AudioBatchConverter.exe
+            AudioBatchConverter-macOS/AudioBatchConverter.dmg
+            AudioBatchConverter-Linux/AudioBatchConverter-*.AppImage

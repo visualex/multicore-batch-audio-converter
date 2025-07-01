@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.67704826"
+     inkscape:cx="396.57439"
+     inkscape:cy="561.25984"
+     inkscape:window-width="1264"
+     inkscape:window-height="1042"
+     inkscape:window-x="380"
+     inkscape:window-y="75"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter33"
+       x="0"
+       y="0"
+       width="1.0213394"
+       height="1.0716736">
+      <feFlood
+         result="flood"
+         in="SourceGraphic"
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         id="feFlood32" />
+      <feGaussianBlur
+         result="blur"
+         in="SourceGraphic"
+         stdDeviation="0.000000"
+         id="feGaussianBlur32" />
+      <feOffset
+         result="offset"
+         in="blur"
+         dx="1.400000"
+         dy="6.000000"
+         id="feOffset32" />
+      <feComposite
+         result="comp1"
+         operator="in"
+         in="flood"
+         in2="offset"
+         id="feComposite32" />
+      <feComposite
+         result="comp2"
+         operator="over"
+         in="SourceGraphic"
+         in2="comp1"
+         id="feComposite33" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#dc3545;stroke-width:1.513"
+       id="rect1"
+       width="150"
+       height="150"
+       x="29.700005"
+       y="71.123688"
+       ry="28.918421" />
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';letter-spacing:3.175px;fill:#dc3545;stroke-width:1.513"
+       x="82.456581"
+       y="136.77631"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.9333px;font-family:'.Lucida Grande UI';-inkscape-font-specification:'.Lucida Grande UI, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#d4d4d4;fill-opacity:1;stroke:#000000;stroke-width:1.513;stroke-opacity:1"
+         x="82.456581"
+         y="136.77631">🔈</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.9333px;font-family:'.Lucida Grande UI';-inkscape-font-specification:'.Lucida Grande UI, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:3.175px;fill:#d4d4d4;fill-opacity:1;stroke:#000000;stroke-width:1.513;stroke-opacity:1"
+       x="57.836845"
+       y="28.527632"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="fill:#35087e;stroke-width:1.513"
+         x="57.836845"
+         y="28.527632">🔈</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.9333px;font-family:'.Lucida Grande UI';-inkscape-font-specification:'.Lucida Grande UI, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:3.175px;fill:#35087e;fill-opacity:1;stroke:#000000;stroke-width:1.513;stroke-opacity:1"
+       x="65.652626"
+       y="23.838158"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="stroke-width:1.513"
+         x="65.652626"
+         y="23.838158" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:120.396px;font-family:'Helvetica Neue';-inkscape-font-specification:'Helvetica Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:22.5743px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:10.7575;stroke-opacity:1;filter:url(#filter33)"
+       x="60.770813"
+       y="192.24989"
+       id="text4"
+       transform="matrix(1.0476363,0,0,0.95452972,-5.5482293,0.62344814)"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:120.396px;font-family:'Helvetica Neue';-inkscape-font-specification:'Helvetica Neue, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;stroke:none;stroke-width:10.7575"
+         x="60.770813"
+         y="192.24989">C</tspan></text>
+  </g>
+</svg>

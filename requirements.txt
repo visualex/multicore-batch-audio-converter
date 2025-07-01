@@ -1,3 +1,9 @@
 tqdm
+PyQt6
+PyInstaller
+pytest
+pytest-qt
+pyinstaller-hooks-contrib
+# Existing audio processing libraries
 pydub
 soundfile
