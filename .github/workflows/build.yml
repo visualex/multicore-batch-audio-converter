@@ -137,9 +137,12 @@ jobs:
           Icon=audiobatchconverter
           Categories=Audio;AudioVideo;
           EOL
-          
+
+          # Copy .desktop to root of AppDir (important for AppImage)
+          cp AppDir/usr/share/applications/audiobatchconverter.desktop AppDir/AudioBatchConverter.desktop
+
           # Create AppImage
-          ./appimagetool AppDir
+          ./appimagetool --verbose AppDir
           
       - name: Upload artifact
         uses: actions/upload-artifact@v4
