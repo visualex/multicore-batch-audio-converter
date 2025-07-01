@@ -36,7 +36,7 @@ jobs:
           pyinstaller --name AudioBatchConverter --onefile --windowed --icon=assets/icon.ico --add-data="assets;assets" main.py
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AudioBatchConverter-Windows
           path: dist/AudioBatchConverter.exe
@@ -81,7 +81,7 @@ jobs:
             "dist/AudioBatchConverter.app"
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AudioBatchConverter-macOS
           path: AudioBatchConverter.dmg
@@ -142,7 +142,7 @@ jobs:
           ./appimagetool AppDir
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AudioBatchConverter-Linux
           path: AudioBatchConverter-*.AppImage
@@ -153,7 +153,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download all artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         
       - name: Create Release
         uses: softprops/action-gh-release@v1
