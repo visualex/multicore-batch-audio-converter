@@ -166,3 +166,6 @@ jobs:
             AudioBatchConverter-Windows/AudioBatchConverter.exe
             AudioBatchConverter-macOS/AudioBatchConverter.dmg
             AudioBatchConverter-Linux/AudioBatchConverter-*.AppImage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
